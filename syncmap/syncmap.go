@@ -253,7 +253,7 @@ func (e *entry) tryLoadOrStore(i ValueT) (actual ValueT, loaded, ok bool) {
 		return *(*ValueT)(p), true, true
 	}
 
-	// Copy the interface after the first load to make this method more amenable
+	// Copy the value after the first load to make this method more amenable
 	// to escape analysis: if we hit the "load" path or the entry is expunged, we
 	// shouldn't bother heap-allocating.
 	ic := i
